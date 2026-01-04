@@ -1,4 +1,7 @@
-<<<<<<< HEAD
+framework/
+configs/
+
+
 # Logs
 logs
 *.log
@@ -138,6 +141,4 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-=======
 node_modules/
->>>>>>> f4d8293 (test: add initial automation framework and A/B Testing)
