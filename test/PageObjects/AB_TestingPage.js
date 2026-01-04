@@ -1,18 +1,25 @@
-import BasePage from '../../framework/page/BasePage.js'
-import { Label } from '../../framework/elements/index.js'
+import BasePage from '../../framework/page/BasePage.js';
+import { Label } from '../../framework/elements/index.js';
 
-class AB_TestingPage extends BasePage{
-    constructor(){
-        super(new Label('//div/h3[contains(text(),"A/B Test Variation 1")]','Unique element for AB testing page'),'AB testing elemen page');
-        this.abTestingLabel = new Label('//div/h3[contains(text(),"A/B Test Variation 1")]','A/B testing label');
-        
-    }
+class AB_TestingPage extends BasePage {
+  constructor() {
+    // Unique/stable element for this page (must work for both variations)
+    const uniqueElement = new Label(
+      '//h3[contains(normalize-space(), "A/B Test")]',
+      'Unique element for A/B Testing page'
+    );
 
-    async checkHeadingText(){
-        headerText = await this.abTestingLabel.getText();
-        if(expect(headerText).to.include('A/B Test')){
-            return true;
-        }
-        return false;
-    }
+    super(uniqueElement, 'A/B Testing Page');
+
+    this.heading = new Label(
+      '//h3[contains(normalize-space(), "A/B Test")]',
+      'A/B Testing heading'
+    );
+  }
+
+  async getHeadingText() {
+    return await this.heading.getText();
+  }
 }
+
+export default new AB_TestingPage();
