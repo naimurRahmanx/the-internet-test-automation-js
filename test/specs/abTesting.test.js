@@ -1,6 +1,6 @@
 import Browser from '../../framework/browser/Browser.js';
 import AB_TestingPage from '../PageObjects/AB_TestingPage.js';
-import { expect } from 'chai';
+import { assert } from 'chai';
 
 describe('A/B Testing Page', () => {
   it('should show heading containing A/B Test', async () => {
